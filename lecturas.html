@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <title>aquasense | LECTURAS</title>
+</head>
+<body>
+    <header>
+        <div class="contenedor">
+            <p class="logo"><img height="80px" src="multimedia/aquasense-logo.png" alt=""></p>
+            <nav>
+                <a href="index.html">INICIO</a>
+                <a href="lecturas.html">LECTURAS</a>
+                <a href="modomanual.html">MODO MANUAL</a>
+                <a href="configuraciones.html">CONFIGURACIONES</a>
+                <a href="index.html#lugares">PRODUCTOS</a>
+                <a href="nosotros.html">NOSOTROS</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="lecturas">
+        <br><br><br>
+        <h1><b>ESTABLECE UNA FECHA PARA CONSULTAR LOS DATOS:</b></h1>
+        <br><br>
+        <form id="variables-form">
+            <label for="fecha"><b>FECHA:</b></label>
+            <input type="date" id="fecha" name="fecha" required><br>
+            <br>
+            <button type="button" class="btn btn-danger" id="buscar"><b>CONSULTAR DATOS</b></button>
+        </form>
+
+        <figure class="highcharts-figure">
+            <div id="container"></div>
+        </figure>
+
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+        <script>
+            document.getElementById("buscar").addEventListener("click", function() {
+                // Captura la fecha ingresada por el usuario
+                var fecha = document.getElementById("fecha").value;
+
+                // Realiza una solicitud AJAX al servidor para obtener los datos
+                $.ajax({
+                    type: "POST",
+                    url: "WEBlecturas.php", // Ruta a tu archivo PHP para obtener datos
+                    data: {
+                        fecha: fecha
+                    },
+                    success: function(data) {
+                        // Procesa los datos y actualiza el gráfico Highcharts
+                        updateChart(JSON.parse(data));
+                    },
+                    error: function(error) {
+                        console.error("Error:", error);
+                    }
+                });
+            });
+
+            function updateChart(data) {
+                Highcharts.chart('container', {
+                    // Configura el gráfico con los datos obtenidos
+                    title: {
+                        text: 'Humedad del Día',
+                        align: 'left'
+                    },
+                    subtitle: {
+                        text: 'Jonathan',
+                        align: 'left'
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'Humedad Relativa (%)'
+                        }
+                    },
+                    xAxis: {
+                        title: {
+                            text: 'Tiempo'
+                        },
+                        type: 'datetime',
+                    },
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'middle'
+                    },
+                    series: [{
+                        name: 'Humedad Relativa',
+                        data: data // Los datos obtenidos se pasan directamente aquí
+                    }]
+                });
+            }
+</script>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script>
+
+<figure class="highcharts-figure">
+    <div id="container"></div>
+    <p class="highcharts-description">
+        Basic line chart showing trends in a dataset. This chart includes the
+        <code>series-label</code> module, which adds a label to each line for
+        enhanced readability.
+    </p>
+</figure>
+
+Highcharts.chart('container', {
+
+    title: {
+        text: 'U.S Solar Employment Growth',
+        align: 'left'
+    },
+
+    subtitle: {
+        text: 'By Job Category. Source: <a href="https://irecusa.org/programs/solar-jobs-census/" target="_blank">IREC</a>.',
+        align: 'left'
+    },
+
+    yAxis: {
+        title: {
+            text: 'Number of Employees'
+        }
+    },
+
+    xAxis: {
+        title: {
+            text:'rangos'
+        },
+        accessibility: {
+            rangeDescription: 'Range: 2010 to 2020'
+        }
+    },
+
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    },
+
+    
+    series: [{
+        name: 'osj',
+        data: [[45248, 78],[43248, 45]]
+    },
+    {
+        name: 'valores',
+        data: [4248, 1003]
+    }]
+
+});
+
+        </script>
+    </section>
+
+    <section id="contactos">
+        <div>
+            <ul>
+                <b>
+                <li style="padding-right: 50px">AquaSense: <a href="https://aquasensep.000webhostapp.com/">www.aquasense.com</a></li><br>
+                <li style="padding-right: 50px">E-mail: <a href="aquasense.soporte@gmail.com">aquasense.soporte@gmail.com</a></li><br>
+                <li style="padding-right: 50px">Facebook: <a href="https://www.facebook.com/profile.php?id=100092176280038">@AquaSense</a></li><br>
+                <li style="padding-right: 50px">Institución: <a href="http://tesji.edomex.gob.mx/">Tecnológico de Estudios Superiores de Jilotepec</a></li><br>
+                <li style="padding-right: 50px">Dirección: <a href="https://maps.app.goo.gl/qnvNjFYXYmypULBt6">Jilotepec, Estado de México</a></li><br>
+                <li style="padding-right: 50px">&copy; 2023 AquaSense - Todos los derechos reservados</li>
+                </b>
+            </ul>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <title>aquasense | MODO MANUAL</title>
+</head>
+<body>
+    <header>
+        <div class="contenedor">
+            <p class="logo"><img height="80px" src="multimedia/aquasense-logo.png" alt=""></p>
+            <nav>
+                <a href="index.html">INICIO</a>
+                <a href="lecturas.html">LECTURAS</a>
+                <a href="modomanual.html">MODO MANUAL</a>
+                <a href="configuraciones.html">CONFIGURACIONES</a>
+                <a href="index.html#lugares">PRODUCTOS</a>
+                <a href="nosotros.html">NOSOTROS</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="main">
+<br><br><br>
+<h1><b>MANIPULA DE FORMA MANUAL TUS CULTIVOS</b></h1>
+    <p>Dentro de este apartado podrás controlar el estado de las salidas del dispositivo activando y desactivando según sea necesario.</p>
+    <br>
+    <h5>Bomba de agua</h5>
+    <form id="rele1" class="d-grid gap-2 col-2 mx-auto">
+        <button id = "botonr1" type="button" class="btn btn-primary" onclick="enviarFormulario('Erele1', 'botonr1')"><b>ENCENDER</b></button>
+    </form>
+    <br>
+    <h5>Línea 1</h5>
+    <form id="rele2" class="d-grid gap-2 col-2 mx-auto">
+        <button id = "botonr2" type="button" class="btn btn-primary" onclick="enviarFormulario('Erele2', 'botonr2')"><b>ENCENDER</b></button>
+    </form>
+    <br>
+    <h5>Línea 2</h5>
+    <form id="rele3" class="d-grid gap-2 col-2 mx-auto">
+        <button id = "botonr3" type="button" class="btn btn-primary" onclick="enviarFormulario('Erele3', 'botonr3')"><b>ENCENDER</b></button>
+    </form>
+    <br>
+    <h5>Ventilador</h5>
+    <form id="rele4" class="d-grid gap-2 col-2 mx-auto">
+        <button id = "botonr4" type="button" class="btn btn-primary" onclick="enviarFormulario('Erele4', 'botonr4')"><b>ENCENDER</b></button>
+    </form>
+    <br>
+    <h5>Opcional</h5>
+    <form id="rele5" class="d-grid gap-2 col-2 mx-auto">
+        <button id = "botonr5" type="button" class="btn btn-primary" onclick="enviarFormulario('Erele5', 'botonr5')"><b>ENCENDER</b></button>
+    </form>
+    <br>
+    <br>
+    </section>
+
+    <script>
+        // Función para manejar el envío de formularios
+        function enviarFormulario(nombreBoton, botonId) {
+            var formData = new FormData();
+            var boton = document.getElementById(botonId);
+
+            formData.append(nombreBoton, 1); // Envía el nombre del botón como dato
+            if (boton.innerHTML === "ENCENDER" ) {
+                boton.innerHTML = "APAGAR";
+            } else {
+                boton.innerHTML = "ENCENDER";
+            }
+            fetch("comunicacionesp.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                // Cambiar el texto del botón
+                
+                // Puedes hacer algo con la respuesta si es necesario
+                console.log(data);
+            })
+            .catch(error => {
+                //console.error("Error:", error);
+            });
+        }
+    </script>
+
+<section id="contactos">
+    <div>
+        <ul>
+            <b>
+            <li style="padding-right: 50px">AquaSense: <a href="https://aquasensep.000webhostapp.com/">www.aquasense.com</a></li><br>
+            <li style="padding-right: 50px">E-mail: <a href="aquasense.soporte@gmail.com">aquasense.soporte@gmail.com</a></li><br>
+            <li style="padding-right: 50px">Facebook: <a href="https://www.facebook.com/profile.php?id=100092176280038">@AquaSense</a></li><br>
+            <li style="padding-right: 50px">Institución: <a href="http://tesji.edomex.gob.mx/">Tecnológico de Estudios Superiores de Jilotepec</a></li><br>
+            <li style="padding-right: 50px">Dirección: <a href="https://maps.app.goo.gl/qnvNjFYXYmypULBt6">Jilotepec, Estado de México</a></li><br>
+            <li style="padding-right: 50px">&copy; 2023 AquaSense - Todos los derechos reservados</li>
+            </b>
+        </ul>
+    </div>
+</section>
+</body>
+</html>

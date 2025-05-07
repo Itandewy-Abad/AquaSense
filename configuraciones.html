@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <title>aquasense | CONFIGURACIONES</title>
+</head>
+<body>
+    <header>
+        <div class="contenedor">
+            <p class="logo"><img height="80px" src="multimedia/aquasense-logo.png" alt=""></p>
+            <nav>
+                <a href="index.html">INICIO</a>
+                <a href="lecturas.html">LECTURAS</a>
+                <a href="modomanual.html">MODO MANUAL</a>
+                <a href="configuraciones.html">CONFIGURACIONES</a>
+                <a href="index.html#lugares">PRODUCTOS</a>
+                <a href="nosotros.html">NOSOTROS</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="config">
+        <br><br><br>
+        <h1><b>SELECCIONA UN TIPO DE CULTIVO</b></h1>
+        <br>
+        <p>Dentro de este apartado podrás seleccionar y configurar los parámetros deseados para tus cultivos.</p>
+        <br>
+    <!-- Menú desplegable principal -->
+    <select id="opciones" onchange="mostrarFormulario()">
+        <option value="chile">CHILE</option>
+        <option value="tomate">TOMATE</option>
+        <option value="zanahoria">ZANAHORIA</option>
+        <option value="personalizado">PERSONALIZADO</option>
+    </select>
+
+    <!-- Div para el formulario personalizado (inicialmente oculto) -->
+    <div id="formulario-personalizado" style="display: none;">
+        <br><br>
+        <h2><b>***OPCIÓN PERSONALIZADA***</b></h2>
+        <form id="personalizado-form">
+            <br>
+            <label for="nombre">NOMBRE:</label>
+            <input type="text" id="nombre" name="nombre"><br>
+            <br>
+            <label for="temperatura">TEMPERATURA:</label>
+            <input type="text" id="temperatura" name="temperatura"><br>
+            <br>
+            <label for="humedad">HUMEDAD:</label>
+            <input type="text" id="humedad" name="humedad"><br>
+            <br>
+            <label for="co2">CO2:</label>
+            <input type="text" id="co2" name="co2"><br>
+            <br>
+            <label for="ph">PH:</label>
+            <input type="text" id="ph" name="ph"><br>
+            <br>
+        </form>
+    </div>
+    <br>
+    <button id="guardar" class="d-grid gap-2 col-2 mx-auto btn btn-warning"><b>GUARDAR</b></button>
+    </section>
+    <script>
+        // Función para mostrar u ocultar el formulario personalizado
+        function mostrarFormulario() {
+            var opciones = document.getElementById("opciones");
+            var formularioPersonalizado = document.getElementById("formulario-personalizado");
+
+            if (opciones.value === "personalizado") {
+                formularioPersonalizado.style.display = "block";
+            } else {
+                formularioPersonalizado.style.display = "none";
+            }
+        }
+
+        // Evento al hacer clic en "Guardar"
+        document.getElementById("guardar").addEventListener("click", function() {
+            var opciones = document.getElementById("opciones");
+            var formularioPersonalizado = document.getElementById("formulario-personalizado");
+            var datosFormulario = new FormData(document.getElementById("personalizado-form"));
+
+            if (opciones.value === "personalizado") {
+                // Realiza la solicitud Fetch para enviar los datos a tu archivo PHP
+                fetch("WEBcomunicacion.php", {
+                    method: "POST",
+                    body: datosFormulario
+                })
+                .then(response => response.text())
+                .then(data => {
+                    console.log(data); // Puedes hacer algo con la respuesta del servidor si es necesario
+                    alert(data);
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                });
+            } else {
+                // Si no se seleccionó "Personalizado", muestra la opción seleccionada
+                console.log("Opción seleccionada:", opciones.value);
+                alert("El cultivo de " + opciones.value + " ha sido configurado.");
+            }
+        })
+    </script>
+
+    <section id="contactos">
+        <div>
+            <ul>
+                <b>
+                <li style="padding-right: 50px">AquaSense: <a href="https://aquasensep.000webhostapp.com/">www.aquasense.com</a></li><br>
+                <li style="padding-right: 50px">E-mail: <a href="aquasense.soporte@gmail.com">aquasense.soporte@gmail.com</a></li><br>
+                <li style="padding-right: 50px">Facebook: <a href="https://www.facebook.com/profile.php?id=100092176280038">@AquaSense</a></li><br>
+                <li style="padding-right: 50px">Institución: <a href="http://tesji.edomex.gob.mx/">Tecnológico de Estudios Superiores de Jilotepec</a></li><br>
+                <li style="padding-right: 50px">Dirección: <a href="https://maps.app.goo.gl/qnvNjFYXYmypULBt6">Jilotepec, Estado de México</a></li><br>
+                <li style="padding-right: 50px">&copy; 2023 AquaSense - Todos los derechos reservados</li>
+                </b>
+            </ul>
+        </div>
+    </section>
+</body>
+</html>

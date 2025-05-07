@@ -1,0 +1,539 @@
+*{
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.contenedor{
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+p{
+    font-size: 25px;
+}
+h1{
+    font-size: 50px;
+    color: white;
+}
+
+h2{
+    font-size: 20px;
+    color: white;
+}
+
+h3{
+    font-size: 2em;
+}
+
+ul{
+    list-style: none;
+}
+
+li{
+    font-size: 1.2em;
+}
+#nombre{
+    font-size: larger;
+}
+#frase{
+    font-style: italic;
+
+}
+#lugares a{
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px 30px;
+    text-decoration: none;
+    border-radius: 10px;
+    border: 2px solid rgb(255, 255, 255);
+    color: white;
+    background-color: grey;
+}
+
+#hero a{
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px 30px;
+    text-decoration: none;
+    border-radius: 10px;
+    border: 2px solid rgb(255, 255, 255);
+    color: white;
+    background-color: #6ea966ab;
+}
+#video{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 0px;
+    padding-right: 5px;
+    background-color: rgb(30,30,30);
+    background-image: url(multimedia/hilera-lechugas-invernadero.jpg    );
+
+}
+#hero a:hover{
+    font-size: 25px;
+    font-weight: bold;
+    padding: 5px 30px;
+    text-decoration: none;
+    border-radius: 10px;
+    border: 2px solid rgb(255, 255, 255);
+    color: white;
+    background-color: #6ea966ab;
+}
+/*#rele1{
+    font-size: 25px;
+    font-weight: bold;
+    padding: 5px 30px;
+    text-decoration: none;
+    border-radius: 10px;
+    border: 2px solid rgb(255, 255, 255);
+    color: white;
+    background-color: #6ea966ab;
+}*/
+#lugares a:hover{
+    font-size: 40px;
+}
+
+
+header{
+    background-color: #6ea966ab;
+    position: fixed;
+    width: 100%;
+}
+
+
+header .contenedor{
+display: flex;
+flex-direction:column;
+align-items: center;
+
+}
+
+header nav{
+    display: flex;
+    flex-direction: flex;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+header a{
+    padding: 5px 12px;
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+}
+
+header a:hover{
+    text-decoration:underline;
+}
+
+#hero{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height: 100vh;
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    ) 
+    ,url(multimedia/invernadero-futurista-vegetales-organicos-dentro-acero-generado-ia.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+#sobre-nosotros{
+    padding: 50px 20px;
+    background-color: rgb(217, 217, 217);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: flex;
+    align-items: center/invernadero-futurista-vegetales-organicos-dentro-acero-generado-ia.jpg
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height:100vh;
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    ) 
+    ,url(multimedia/pepinos.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#sobre-nosotros h2{
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+}
+
+#sobre-nosotros p{
+    font-size: 20px;
+    text-align: justify;
+    padding: 10px 20px;
+}
+#sobre-nosotros h3{
+    font-size: 20px;
+}
+#lugares{
+    background-color: rgb(30,30,30);
+    color: white;
+    text-align: center;
+    /*background-image: url(multimedia/pepinos.jpg);*/
+}
+
+#lugares .contenedor{
+    padding: 100px 30px;
+    padding-bottom: 10px;
+}
+
+#lugares p{
+    display: none;
+}
+
+#lugares h2{
+    margin-top: 0px;
+    font-size: 25px;
+}
+#lugares h3{
+    font-size: 30px;
+}
+
+#lugares .postal{
+    background-position: center;
+    background-size: cover;
+    padding: 20px 0px;
+    margin: 40px;
+    border-radius: 15px;
+    font-size: 10px;
+}
+
+.postal:first-child{
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    ) 
+    ,url(multimedia/aquav1.jpg);
+}
+
+.postal:nth-child(2){
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    ) 
+    ,url(multimedia/aquav3.jpg);
+}
+
+#equipo-de-trabajo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height: 350vh;
+    background-image: linear-gradient(
+        0deg,
+        rgba(76, 112, 91, 0.742),
+        rgba(8, 58, 19, 0.5)
+    ) 
+    ,url(multimedia/siluetas.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    padding: 100px;
+    color: white;
+}
+
+#equipo-de-trabajo h2{
+    color: rgb(255, 255, 255);
+    font-size: 45px;
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+#equipo-de-trabajo h3{
+    font-size: 25px;
+    text-align: center;
+    padding: 20px;
+}
+#equipo-de-trabajo .miembro{
+    text-align: center;
+    align-items: center;
+    color: white;
+}
+
+img{
+   width: 150px;
+   vertical-align: middle;
+}
+
+#contactos{
+    background-color: black;
+    color: white;
+    padding: 20px;
+    font-size: 10px;
+    text-align: center;
+}
+
+#video .contenedor{
+    padding-right:55px;
+}
+
+#descarga h1{
+    font-size: 25px;
+}
+
+
+@media (min-width: 720px){
+    
+    header{
+        position: fixed;
+        width: 100%;
+    }
+
+    header .contenedor{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    header nav{
+        flex-direction: row;
+        padding-bottom: 0;
+    }
+
+    #lugares .postales{
+        display: flex;
+        justify-content: center;
+        background-position: center;
+    }
+    #lugares .postal{
+        padding: 60px;
+        height: 250px;
+        width: 700px;
+    }
+    #lugares h2{
+        font-size: 50px;
+    }
+    video{
+    height: 600px;
+    }
+    #descarga h1{
+        font-size: 40px;
+    }
+
+    #equipo-de-trabajo .equipo{
+        display: flex;
+        justify-content: center;
+    }
+    
+    #contactos ul{
+        display: flex;
+        justify-content: center;
+    }
+
+    #sobre-nosotros .contenedor{
+        display: flex;
+    }
+    #hero h1{
+        font-size: 70px;
+    }
+    #hero h2{
+        font-size: 35px;
+    }
+    #sobre-nosotros{
+        height:50vh;
+    }
+
+    #equipo-de-trabajo{
+        height: 60vh;
+    }
+}
+#nosotros{
+    padding: 50px 20px;
+    background-color: rgb(217, 217, 217);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: flex;
+    align-items: center/invernadero-futurista-vegetales-organicos-dentro-acero-generado-ia.jpg
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height:100vh;
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    ) 
+    ,url(multimedia/nosotros2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#nosotros h2{
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+}
+
+#nosotros p{
+    font-size: 20px;
+    text-align: justify;
+    padding: 10px 20px;
+}
+#nosotros2{
+    padding: 50px 20px;
+    background-color: rgb(217, 217, 217);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: flex;
+    align-items: center/invernadero-futurista-vegetales-organicos-dentro-acero-generado-ia.jpg
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height:100vh;
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    ) 
+    ,url(multimedia/nosotros1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+#lecturas{
+    padding: 50px 20px;
+    background-color: rgb(217, 217, 217);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: flex;
+    align-items: center/invernadero-futurista-vegetales-organicos-dentro-acero-generado-ia.jpg
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height:100vh;
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    ) 
+    ,url(multimedia/tomates.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+#nosotros2 h2{
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+}
+
+#nosotros2 p{
+    font-size: 20px;
+    text-align: justify;
+    padding: 10px 20px;
+}
+.main{
+    padding: 50px 20px;
+    background-color: rgb(217, 217, 217);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: flex;
+    align-items: center/invernadero-futurista-vegetales-organicos-dentro-acero-generado-ia.jpg
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height:100vh;
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    ) 
+    ,url(multimedia/verduras.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+#config{
+    padding: 50px 20px;
+    background-color: rgb(217, 217, 217);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: flex;
+    align-items: center/invernadero-futurista-vegetales-organicos-dentro-acero-generado-ia.jpg
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height:100vh;
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    ) 
+    ,url(multimedia/almacenamiento.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+#help{
+    padding: 50px 20px;
+    background-color: rgb(217, 217, 217);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: flex;
+    align-items: center/invernadero-futurista-vegetales-organicos-dentro-acero-generado-ia.jpg
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height:100vh;
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    ) 
+    ,url(multimedia/hilera-lechugas-invernadero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+#contactos{
+    font-size: X-small;
+}
+#opciones{
+    width: fit-content;
+    text-align: center;
+    align-self: center;
+}
+/*#personalizado-form{
+
+}*/
+.lec-graficas{
+    padding: 50px 20px;
+    background-color: rgb(217, 217, 217);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: flex;
+    align-items: center/invernadero-futurista-vegetales-organicos-dentro-acero-generado-ia.jpg
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height:100vh;
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    ) 
+    ,url(multimedia/water.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
